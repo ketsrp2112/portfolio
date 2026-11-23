@@ -2,7 +2,7 @@
 
 A personal portfolio website showcasing my professional experience, technical skills, selected projects, and software development background.
 
-**Live Portfolio:** [Add your GitHub Pages URL]
+**Live Portfolio:** [https://ketsrp2112.github.io/portfolio/]
 
 ## Portfolio Preview
 
@@ -122,7 +122,7 @@ Once GitHub Pages is configured, the website is accessible through the public po
 ## Contact
 
 - **GitHub:** https://github.com/ketsrp2112
-- **LinkedIn:** https://www.linkedin.com/in/ketsaraporn-puengphuk/
+- **LinkedIn:** www.linkedin.com/in/ketsaraporn-puengphuk
 - **Email:** ketsrp.21@gmail.com
 
 ---
