@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Puengphuk Ketsaraporn — Software Developer with approximately 6 years of experience in backend development, SQL Server, API integration, system migration, and production support.">
+  <meta name="theme-color" content="#FFFAF9">
+  <title>Puengphuk Ketsaraporn | Software Developer Portfolio</title>
+  <style>
+    :root {
+      --bg: #FFFAF9;
+      --panel: #FFFFFF;
+      --panel-soft: #F8EDF0;
+      --text: #423A3D;
+      --muted: #887D81;
+      --line: #EEE5E7;
+      --accent: #C9879C;
+      --accent-soft: #F8EDF0;
+      --accent-dark: #966477;
+      --white: #FFFFFF;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    .container { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 250, 249, .96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { font-weight: 750; letter-spacing: -.03em; }
+    .brand span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 19px;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+    .nav-links a:hover, .text-link:hover { color: var(--accent-dark); }
+    .menu-button {
+      display: none;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: transparent;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .hero { padding: 90px 0 85px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr .8fr;
+      align-items: center;
+      gap: 65px;
+    }
+    .hero-content { min-width: 0; }
+    .eyebrow, .section-kicker, .project-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-size: .75rem;
+      font-weight: 750;
+    }
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5.1rem);
+      line-height: 1.04;
+      letter-spacing: -.065em;
+      margin: 18px 0;
+      max-width: 850px;
+    }
+    h1 .accent { color: var(--accent); }
+    .hero-copy { color: var(--muted); font-size: 1.08rem; max-width: 700px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9px;
+      padding: 11px 17px;
+      font-weight: 700;
+      font-size: .9rem;
+      border: 1px solid var(--line);
+      transition: .2s ease;
+    }
+    .button.primary { background: var(--accent); color: var(--white); border-color: var(--accent); }
+    .button:hover { transform: translateY(-2px); }
+    .button.secondary:hover { border-color: var(--accent); color: var(--accent-dark); }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+    .hero-meta span::before { content: "•"; color: var(--accent); margin-right: 9px; }
+
+    section { padding: 76px 0; border-top: 1px solid var(--line); }
+    .section-head { margin-bottom: 32px; }
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -.045em;
+      line-height: 1.2;
+      margin: 8px 0 10px;
+    }
+    .section-intro { color: var(--muted); max-width: 740px; margin: 0; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .85fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .about-copy { color: var(--muted); font-size: 1rem; }
+    .about-copy strong { color: var(--text); font-weight: 700; }
+    .quick-facts, .card, .case-study, .evidence-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+    .quick-facts { padding: 21px; }
+    .fact { padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .fact:last-child { border-bottom: 0; }
+    .fact small {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+    .fact strong { display: block; margin-top: 3px; font-size: .94rem; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .skill-card { padding: 21px; }
+    .skill-card h3 { margin: 0 0 10px; font-size: 1rem; }
+    .skill-card p { margin: 0; color: var(--muted); font-size: .89rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .tag {
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      border: 1px solid #F0DDE3;
+      padding: 4px 9px;
+      border-radius: 5px;
+      font-size: .76rem;
+    }
+    .skill-note {
+      margin-top: 20px;
+      padding: 15px 18px;
+      border-left: 3px solid var(--accent);
+      background: var(--panel-soft);
+      color: var(--muted);
+      border-radius: 0 8px 8px 0;
+      font-size: .87rem;
+    }
+
+    .project-card { overflow: hidden; }
+    .project-banner {
+      padding: 25px;
+      background: linear-gradient(135deg, #F8EDF0, #FFFAF9);
+      border-bottom: 1px solid var(--line);
+    }
+    .project-visual { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
+    .project-screenshot {
+      background: #fff;
+      border: 1px solid #EADDE1;
+      border-radius: 8px;
+      overflow: hidden;
+      min-width: 0;
+    }
+    .project-screenshot img { display: block; width: 100%; height: auto; object-fit: contain; }
+    .main-screenshot img { max-height: 560px; object-fit: contain; background: #faf8f8; }
+    .project-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .project-gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #faf8f8; }
+    .screenshot-caption {
+      display: block;
+      padding: 9px 11px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+    .project-body { padding: 26px; }
+    .project-body h3 { font-size: 1.45rem; margin: 0 0 8px; letter-spacing: -.03em; }
+    .project-body > p { color: var(--muted); margin: 0; max-width: 850px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 22px; margin: 23px 0; }
+    .feature { color: var(--muted); font-size: .89rem; }
+    .feature strong { color: var(--text); display: block; font-size: .91rem; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 20px; }
+    .text-link { color: var(--accent-dark); font-size: .88rem; font-weight: 750; }
+    .project-note { font-size: .8rem; margin-top: 18px !important; color: var(--muted) !important; }
+
+    .timeline { display: grid; gap: 16px; }
+    .timeline-item { display: grid; grid-template-columns: 185px 1fr; gap: 24px; padding: 23px; }
+    .timeline-date { color: var(--accent-dark); font-size: .84rem; font-weight: 750; }
+    .timeline-item h3 { margin: 0 0 5px; font-size: 1.05rem; }
+    .timeline-item p { color: var(--muted); margin: 0; font-size: .91rem; }
+    .timeline-item ul { color: var(--muted); margin: 12px 0 0; padding-left: 19px; font-size: .89rem; }
+    .timeline-item li { margin-bottom: 5px; }
+    .career-progression { margin: 18px 0 22px; padding-left: 4px; }
+    .career-item { display: flex; align-items: flex-start; gap: 13px; position: relative; padding-bottom: 15px; }
+    .career-item:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 13px;
+      height: calc(100% - 13px);
+      width: 1px;
+      background: #EADDE1;
+    }
+    .career-dot {
+      width: 9px;
+      height: 9px;
+      flex-shrink: 0;
+      margin-top: 6px;
+      border-radius: 50%;
+      background: #D9B1BE;
+      position: relative;
+      z-index: 1;
+    }
+    .career-item.current .career-dot { background: var(--accent); }
+    .career-item h4 { margin: 0; font-size: .93rem; font-weight: 700; }
+    .career-period { display: block; margin-top: 3px; color: var(--muted); font-size: .81rem; }
+    .experience-context { margin-top: 14px; }
+
+    .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .case-study { padding: 21px; }
+    .case-study h3 { margin: 8px 0; font-size: 1.03rem; }
+    .case-study > p { color: var(--muted); font-size: .88rem; margin: 0; }
+    .case-study details { margin-top: 15px; border-top: 1px solid var(--line); padding-top: 12px; }
+    .case-study summary { color: var(--accent-dark); font-weight: 750; cursor: pointer; font-size: .88rem; }
+    .case-study-content { color: var(--muted); font-size: .88rem; padding-top: 10px; }
+    .case-study-content h4 { color: var(--text); margin: 13px 0 4px; font-size: .88rem; }
+    .case-study-content p { margin: 4px 0 10px; }
+    .case-study-content ul { padding-left: 19px; margin: 6px 0; }
+    .case-study-content li { margin-bottom: 4px; }
+
+    .evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .evidence-card { padding: 20px; }
+    .evidence-number { color: var(--accent-dark); font-weight: 800; font-size: .72rem; letter-spacing: .12em; }
+    .evidence-card h3 { margin: 10px 0 6px; font-size: .98rem; }
+    .evidence-card p { color: var(--muted); font-size: .86rem; margin: 0; }
+    .evidence-card details { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; }
+    .evidence-card summary { color: var(--accent-dark); font-weight: 700; cursor: pointer; font-size: .84rem; }
+    .evidence-card details p { padding-top: 9px; }
+    .evidence-note { color: var(--muted); font-size: .82rem; margin-top: 18px; }
+
+
+    .documentation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+    }
+    .documentation-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 21px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      transition: .2s ease;
+    }
+    .documentation-card:hover {
+      transform: translateY(-3px);
+      border-color: #E4C2CD;
+      box-shadow: 0 8px 24px rgba(150, 100, 119, .08);
+    }
+    .documentation-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      font-size: 1.1rem;
+    }
+    .documentation-card h3 { margin: 0; font-size: 1rem; }
+    .documentation-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .86rem;
+      flex: 1;
+    }
+    .documentation-link {
+      color: var(--accent-dark);
+      font-size: .84rem;
+      font-weight: 750;
+      margin-top: 3px;
+    }
+    .documentation-link:hover { color: var(--accent); }
+
+    .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .education-card { padding: 22px; }
+    .education-card h3 { margin: 0 0 6px; font-size: 1rem; }
+    .education-card p { color: var(--muted); margin: 0; font-size: .9rem; }
+
+    .contact-panel {
+      padding: 32px;
+      border: 1px solid #F0DDE3;
+      border-radius: 14px;
+      background: #FDF5F7;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+    .contact-panel p { color: var(--muted); margin: 8px 0 0; max-width: 580px; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; max-width: 440px; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: .81rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .nav-links { gap: 12px; font-size: .78rem; }
+      .hero-grid { gap: 35px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .documentation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .evidence-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 760px) {
+      .hero { padding: 65px 0; }
+      section { padding: 58px 0; }
+      .hero-grid, .about-grid, .skills-grid, .education-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 28px; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 18px 22px 22px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+      }
+      .nav-links.open { display: flex; }
+      .menu-button { display: inline-flex; }
+      .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+      .contact-panel { align-items: flex-start; flex-direction: column; padding: 25px; }
+    }
+    @media (max-width: 640px) {
+      .project-gallery, .case-study-grid, .evidence-grid { grid-template-columns: 1fr; }
+      .documentation-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .container { width: min(var(--max), calc(100% - 30px)); }
+      .feature-grid { grid-template-columns: 1fr; }
+      .project-body { padding: 21px; }
+      .hero-meta { gap: 10px 17px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Puengphuk Ketsaraporn home">PK<span>.</span></a>
+      <button class="menu-button" id="menuButton" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#summary">Summary</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#documentation">Documentation</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <header class="hero container" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">Software Developer · Incheon, South Korea</div>
+        <h1>Building reliable systems<br>with <span class="accent">thoughtful backend</span>.</h1>
+        <p class="hero-copy">
+          I'm Puengphuk Ketsaraporn, a Software Developer with 6+ years of experience
+          developing, maintaining, and improving enterprise and government applications.
+          My professional background includes backend development, SQL Server database
+          programming, API integration, system migration, and production support.
+          I have worked with VB.NET, C#, ASP.NET, and Microsoft SQL Server, and I'm
+          currently expanding my modern backend development skills through a C# and
+          ASP.NET Core portfolio project.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore my work ↗</a>
+          <a class="button secondary" href="#contact">Get in touch</a>
+        </div>
+        <div class="hero-meta">
+          <span>Based in South Korea</span>
+          <span>Open to opportunities</span>
+          <span>Backend · SQL Server · .NET</span>
+        </div>
+      </div>
+    </header>
+
+    <section id="summary">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">01 / Professional Summary</div>
+          <h2>Backend-focused software development experience.</h2>
+          <p class="section-intro">Software Developer with approximately 6 years of experience developing, maintaining, and enhancing government web applications for public health and medical-device regulatory processes.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>
+              My experience covers application development and maintenance, SQL Server database programming, API and web-service integration, system migration, troubleshooting, and production support. I have also worked with users and a small development team to clarify requirements and coordinate technical delivery.
+            </p>
+            <p>
+              My strongest areas are <strong>backend and database development</strong>, particularly Microsoft SQL Server, T-SQL, stored procedures, API integration, and production issue investigation. My professional background includes VB.NET, C#, and ASP.NET. I am also developing a modern C# / ASP.NET Core project to demonstrate these skills in a current technology stack.
+            </p>
+            <p>
+              Currently based in Incheon, South Korea, I am seeking software development opportunities where I can contribute my practical experience in backend development, databases, and business applications.
+            </p>
+          </div>
+          <aside class="quick-facts">
+            <div class="fact"><small>Experience</small><strong>6+ years in software development</strong></div>
+            <div class="fact"><small>Primary focus</small><strong>Backend & Database Development</strong></div>
+            <div class="fact"><small>Domain experience</small><strong>Government & Regulatory Systems</strong></div>
+            <div class="fact"><small>Location</small><strong>Incheon, South Korea</strong></div>
+            <div class="fact"><small>Work authorization</small><strong>F-6 visa</strong></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">02 / Technical Skills</div>
+          <h2>Tools I work with</h2>
+          <p class="section-intro">A backend-focused skill set built through professional business application development and ongoing personal project work.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="card skill-card">
+            <h3>Backend Development</h3>
+            <p>Developing and maintaining server-side application logic and web services.</p>
+            <div class="tags"><span class="tag">VB.NET</span><span class="tag">C#</span><span class="tag">ASP.NET</span><span class="tag">ASP.NET Core Web API</span></div>
+          </article>
+          <article class="card skill-card">
+            <h3>Database Development</h3>
+            <p>Working with relational data, SQL troubleshooting, and database maintenance.</p>
+            <div class="tags"><span class="tag">SQL Server</span><span class="tag">T-SQL</span><span class="tag">Stored Procedures</span><span class="tag">Functions</span><span class="tag">Triggers</span><span class="tag">Indexes</span></div>
+          </article>
+          <article class="card skill-card">
+            <h3>API & Integration</h3>
+            <p>Consuming, developing, testing, and maintaining application integrations.</p>
+            <div class="tags"><span class="tag">REST API</span><span class="tag">SOAP</span><span class="tag">JSON</span><span class="tag">XML</span></div>
+          </article>
+          <article class="card skill-card">
+            <h3>Frontend</h3>
+            <p>Building and maintaining functional interfaces connected to backend APIs.</p>
+            <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">AngularJS</span></div>
+          </article>
+          <article class="card skill-card">
+            <h3>Engineering Practices</h3>
+            <p>Supporting application delivery, maintenance, and production operations.</p>
+            <div class="tags"><span class="tag">Debugging</span><span class="tag">System Migration</span><span class="tag">Production Support</span><span class="tag">Git</span></div>
+          </article>
+          <article class="card skill-card">
+            <h3>Tools & Frameworks</h3>
+            <p>Development and database tools used across professional and personal projects.</p>
+            <div class="tags"><span class="tag">Visual Studio</span><span class="tag">SSMS</span><span class="tag">GitHub</span><span class="tag">Entity Framework Core</span><span class="tag">.NET 10</span></div>
+          </article>
+        </div>
+        <p class="skill-note">
+          <strong>Technology context:</strong> VB.NET, ASP.NET, SQL Server, API integration, and production support
+          are part of my professional experience. C#, ASP.NET Core Web API, Entity Framework Core, and .NET 10
+          are also demonstrated in my current personal portfolio project; this distinction reflects the technologies
+          used in each context.
+        </p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">03 / Professional Experience</div>
+          <h2>Professional background</h2>
+          <p class="section-intro">Professional experience in government application development, database programming, system integration, migration, and production support.</p>
+        </div>
+        <div class="timeline">
+          <article class="card timeline-item">
+            <div class="timeline-date">2020 – 2026</div>
+            <div>
+              <h3>Programmer / Software Developer</h3>
+              <p>FA System and Application Co., Ltd. · Thailand</p>
+              <div class="experience-context tags">
+                <span class="tag">Government Regulatory System</span>
+                <span class="tag">Medical Device Registration</span>
+                <span class="tag">Team of 3–5</span>
+                <span class="tag">Approx. 1,000 applications/year</span>
+              </div>
+              <div class="career-progression">
+                <div class="career-item current">
+                  <span class="career-dot"></span>
+                  <div>
+                    <h4>Senior Programmer / System Analyst</h4>
+                    <span class="career-period">2024 – 2026</span>
+                  </div>
+                </div>
+                <div class="career-item">
+                  <span class="career-dot"></span>
+                  <div>
+                    <h4>Senior Programmer</h4>
+                    <span class="career-period">2022 – 2024</span>
+                  </div>
+                </div>
+                <div class="career-item">
+                  <span class="career-dot"></span>
+                  <div>
+                    <h4>Junior Programmer</h4>
+                    <span class="career-period">2020 – 2022</span>
+                  </div>
+                </div>
+              </div>
+              <ul>
+                <li>Developed and maintained government web applications supporting public health and medical-device regulatory processes.</li>
+                <li>Implemented application functionality and backend business logic based on operational and regulatory requirements.</li>
+                <li>Designed, queried, and maintained SQL Server database components, including tables, stored procedures, functions, triggers, and indexes.</li>
+                <li>Developed and maintained API integrations and web services using REST, SOAP, JSON, and XML.</li>
+                <li>Contributed to system and database migration activities in 2022 and 2025.</li>
+                <li>Investigated production issues, performed troubleshooting, supported users, and coordinated technical fixes.</li>
+                <li>Contributed to work planning, progress tracking, requirements discussions, and technical problem-solving within a small development team.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card timeline-item">
+            <div class="timeline-date">2016.01 – 2019.10</div>
+            <div>
+              <h3>Programming Teaching Assistant</h3>
+              <p>Expert Programming Tutor · Thailand</p>
+              <ul>
+                <li>Assisted instructors in classroom-based programming lessons and practical coding sessions.</li>
+                <li>Helped students install and configure programming software and development environments.</li>
+                <li>Checked programming homework and provided guidance on coding assignments.</li>
+                <li>Supported students learning Java, Visual Basic (VB), C#, C++, and Python.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">04 / Selected Projects</div>
+          <h2>Selected work</h2>
+          <p class="section-intro">Selected development work demonstrating experience with business applications, backend development, API integration, and relational data management.</p>
+        </div>
+        <article class="card project-card">
+          <div class="project-banner">
+            <div class="project-label">Personal project · ASP.NET Core Web API</div>
+            <div class="project-visual">
+              <div class="project-screenshot main-screenshot">
+                <img src="images/License/LC_Staff_list.png" alt="License Management System staff application list" loading="lazy">
+                <span class="screenshot-caption">Staff Application List</span>
+              </div>
+              <div class="project-gallery">
+                <div class="project-screenshot">
+                  <img src="images/License/LC_Staff_detail.png" alt="License Management System staff application detail" loading="lazy">
+                  <span class="screenshot-caption">Staff Application Detail</span>
+                </div>
+                <div class="project-screenshot">
+                  <img src="images/License/LC_flow_his.png" alt="Application status history" loading="lazy">
+                  <span class="screenshot-caption">Status History</span>
+                </div>
+                <div class="project-screenshot">
+                  <img src="images/License/LC_Swagger.png" alt="License Management System Swagger UI" loading="lazy">
+                  <span class="screenshot-caption">Swagger UI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>License Management System</h3>
+            <p>
+              A web-based system for managing license applications from submission and
+              officer review to approval and PDF certificate generation. The application
+              supports Trader and Staff workflows and preserves status and revision history
+              for traceability.
+            </p>
+            <div class="feature-grid">
+              <div class="feature"><strong>Application workflow</strong>New License, Amendment, Renew, and Cancel</div>
+              <div class="feature"><strong>Backend API</strong>ASP.NET Core Web API with C#</div>
+              <div class="feature"><strong>Data management</strong>SQL Server and Entity Framework Core</div>
+              <div class="feature"><strong>Traceability</strong>Status history and application revision snapshots</div>
+              <div class="feature"><strong>Document handling</strong>Supporting file uploads and PDF certificate output</div>
+              <div class="feature"><strong>Frontend</strong>HTML, CSS, and JavaScript integrated with API endpoints</div>
+            </div>
+            <div class="tags">
+              <span class="tag">C#</span><span class="tag">.NET 10</span><span class="tag">ASP.NET Core</span>
+              <span class="tag">EF Core</span><span class="tag">SQL Server</span><span class="tag">REST API</span>
+            </div>
+            <div class="project-links">
+              <!-- Replace # with the actual public repository URL before publishing. -->
+              <a class="text-link" href="https://github.com/ketsrp2112" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+            </div>
+         
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">05 / Technical Expertise</div>
+          <h2>Areas of technical experience</h2>
+          <p class="section-intro">
+            Examples of technical responsibilities across database development, API integration, system migration, production support, and technical coordination. Expand each area for more detail.
+          </p>
+        </div>
+        <div class="case-study-grid">
+          <article class="case-study">
+            <div class="section-kicker">Case Study 01</div>
+            <h3>Database Development & Maintenance</h3>
+            <p>Supporting a government regulatory application with relational data and business rules.</p>
+            <details>
+              <summary>View details</summary>
+              <div class="case-study-content">
+                <h4>Context</h4>
+                <p>The application manages establishment registration and related regulatory processes, where data relationships and business rules need to remain consistent.</p>
+                <h4>My contribution</h4>
+                <ul>
+                  <li>Worked with SQL Server tables, relationships, stored procedures, functions, and triggers.</li>
+                  <li>Maintained and adjusted database logic to support application requirements.</li>
+                  <li>Investigated data issues and supported application-side fixes.</li>
+                </ul>
+                <h4>Technical focus</h4>
+                <p>SQL Server, T-SQL, relational database design, stored procedures, functions, and triggers.</p>
+              </div>
+            </details>
+          </article>
+
+          <article class="case-study">
+            <div class="section-kicker">Case Study 02</div>
+            <h3>SQL Query Development & Troubleshooting</h3>
+            <p>Investigating query results and database behavior to support day-to-day system operations.</p>
+            <details>
+              <summary>View details</summary>
+              <div class="case-study-content">
+                <h4>Context</h4>
+                <p>Operational systems require accurate data retrieval and dependable query behavior as records and business requirements evolve.</p>
+                <h4>My contribution</h4>
+                <ul>
+                  <li>Wrote and maintained SQL queries for application features and operational data checks.</li>
+                  <li>Investigated unexpected query results and data inconsistencies.</li>
+                  <li>Worked with joins, filters, stored procedures, and indexes when diagnosing database issues.</li>
+                </ul>
+                <h4>Technical focus</h4>
+                <p>T-SQL, joins, filtering, stored procedures, indexes, and data troubleshooting.</p>
+              </div>
+            </details>
+          </article>
+
+          <article class="case-study">
+            <div class="section-kicker">Case Study 03</div>
+            <h3>API & Web Service Integration</h3>
+            <p>Connecting application components and external services through structured data exchange.</p>
+            <details>
+              <summary>View details</summary>
+              <div class="case-study-content">
+                <h4>Context</h4>
+                <p>Application workflows depend on reliable communication between services and consistent handling of exchanged data.</p>
+                <h4>My contribution</h4>
+                <ul>
+                  <li>Consumed and developed APIs and maintained existing service integrations.</li>
+                  <li>Worked with SOAP web services and REST-style API communication.</li>
+                  <li>Tested request and response data and investigated connection or data-format issues.</li>
+                </ul>
+                <h4>Technical focus</h4>
+                <p>REST API, SOAP, XML, JSON, request/response handling, and integration troubleshooting.</p>
+              </div>
+            </details>
+          </article>
+
+          <article class="case-study">
+            <div class="section-kicker">Case Study 04</div>
+            <h3>System & Database Migration</h3>
+            <p>Contributing to system and database migration activities during ongoing system development.</p>
+            <details>
+              <summary>View details</summary>
+              <div class="case-study-content">
+                <h4>Context</h4>
+                <p>The system went through migration activities in 2022 and 2025, involving application and database changes.</p>
+                <h4>My contribution</h4>
+                <ul>
+                  <li>Participated in application and database migration work.</li>
+                  <li>Supported verification and troubleshooting of system behavior after changes.</li>
+                  <li>Helped address technical issues affecting application operation.</li>
+                </ul>
+                <h4>Technical focus</h4>
+                <p>ASP.NET applications, SQL Server, database validation, troubleshooting, and deployment support.</p>
+              </div>
+            </details>
+          </article>
+
+          <article class="case-study">
+            <div class="section-kicker">Case Study 05</div>
+            <h3>Production Support & System Improvement</h3>
+            <p>Maintaining business-critical applications and responding to user-reported issues.</p>
+            <details>
+              <summary>View details</summary>
+              <div class="case-study-content">
+                <h4>Context</h4>
+                <p>Government users rely on the application for daily regulatory work, so issues need to be investigated and communicated clearly.</p>
+                <h4>My contribution</h4>
+                <ul>
+                  <li>Investigated application errors and database-related issues.</li>
+                  <li>Implemented fixes and maintained existing application functionality.</li>
+                  <li>Coordinated with users and team members to clarify issues and verify fixes.</li>
+                </ul>
+                <h4>Technical focus</h4>
+                <p>Debugging, SQL Server, application maintenance, user support, and production troubleshooting.</p>
+              </div>
+            </details>
+          </article>
+
+          <article class="case-study">
+            <div class="section-kicker">Case Study 06</div>
+            <h3>Requirements & Technical Coordination</h3>
+            <p>Working with users and a small development team to move application changes forward.</p>
+            <details>
+              <summary>View details</summary>
+              <div class="case-study-content">
+                <h4>Context</h4>
+                <p>Regulatory applications evolve with operational needs and changes to business processes.</p>
+                <h4>My contribution</h4>
+                <ul>
+                  <li>Discussed requirements and clarified expected system behavior with users.</li>
+                  <li>Contributed to technical approaches, work planning, and progress tracking.</li>
+                  <li>Supported review and troubleshooting before changes were delivered.</li>
+                </ul>
+                <h4>Technical focus</h4>
+                <p>Requirement analysis, application design discussions, team coordination, and delivery support.</p>
+              </div>
+            </details>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="documentation">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">06 / Project Documentation</div>
+          <h2>Explore the technical details</h2>
+          <p class="section-intro">
+            Supporting documents for the License Management System, covering its architecture,
+            business workflow, database structure, API specifications, and user guidance.
+          </p>
+        </div>
+        <div class="documentation-grid">
+          <article class="documentation-card">
+            <span class="documentation-icon" aria-hidden="true">⌘</span>
+            <h3>System Architecture</h3>
+            <p>Overview of the application structure, main components, and how they work together.</p>
+            <a class="documentation-link" href="docs/System_Architecture.pdf" target="_blank" rel="noopener noreferrer">View document ↗</a>
+          </article>
+          <article class="documentation-card">
+            <span class="documentation-icon" aria-hidden="true">↗</span>
+            <h3>Business Workflow</h3>
+            <p>Application processes, user roles, and status transitions throughout the workflow.</p>
+            <a class="documentation-link" href="docs/Business_Workflow.pdf" target="_blank" rel="noopener noreferrer">View document ↗</a>
+          </article>
+          <article class="documentation-card">
+            <span class="documentation-icon" aria-hidden="true">▦</span>
+            <h3>Database Design</h3>
+            <p>Database tables, key relationships, and the data structure supporting the system.</p>
+            <a class="documentation-link" href="docs/Database_Design.pdf" target="_blank" rel="noopener noreferrer">View document ↗</a>
+          </article>
+          <article class="documentation-card">
+            <span class="documentation-icon" aria-hidden="true">{ }</span>
+            <h3>API Documentation</h3>
+            <p>API endpoints and technical references for communication between the frontend and backend.</p>
+            <a class="documentation-link" href="docs/API_Documentation.pdf" target="_blank" rel="noopener noreferrer">View document ↗</a>
+          </article>
+          <article class="documentation-card">
+            <span class="documentation-icon" aria-hidden="true">▤</span>
+            <h3>User Manual</h3>
+            <p>Guidance for using the system and navigating its main functions.</p>
+            <a class="documentation-link" href="docs/User_Manual.pdf" target="_blank" rel="noopener noreferrer">View document ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">07 / Education & Languages</div>
+          <h2>Education and communication</h2>
+        </div>
+        <div class="education-grid">
+          <article class="card education-card">
+            <h3>Certificate of Vocational Education in Retail Business Management</h3>
+            <p>Panyapiwat Technology College · Thailand<br>2011 – 2013 · GPA 3.47 / 4.00</p>
+          </article>
+          <article class="card education-card">
+            <h3>Languages</h3>
+            <p>Thai — Native<br>English — Able to communicate in everyday situations and handle work-related communication through written messages and email.
+              <br>Korean — TOPIK Level 2. Able to read technical documentation and communicate effectively about work-related matters via chat and email. Actively improving Korean language proficiency.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <div class="section-kicker">08 / Contact</div>
+            <h2>Let's connect.</h2>
+            <p>
+              I'm open to software development opportunities in South Korea.
+              Feel free to reach out to discuss backend development, business applications,
+              or potential opportunities.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:ketsrp.21@gmail.com">Email me</a>
+            <a class="button secondary" href="https://github.com/ketsrp2112" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="button secondary" href="https://www.linkedin.com/in/ketsaraporn-puengphuk/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="button secondary" href="resume/RESUME_ENG.pdf" target="_blank" rel="noopener noreferrer">Resume (English) ↗</a>
+            <a class="button secondary" href="resume/RESUME_KOR.pdf" target="_blank" rel="noopener noreferrer">Resume (Korean) ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Puengphuk Ketsaraporn</span>
+      <span>Designed and built with HTML, CSS & JavaScript.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+</body>
+</html>
