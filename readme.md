@@ -2,7 +2,7 @@
 
 A personal portfolio website showcasing my professional experience, technical skills, selected projects, and software development background.
 
-**Live Portfolio:** [Add your GitHub Pages URL]
+**Live Portfolio:** [https://ketsrp2112.github.io/portfolio/]
 
 ## Portfolio Preview
 
